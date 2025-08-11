@@ -43,27 +43,24 @@ aside {
     margin-bottom: 20px;
 }
 
-button {
-    background-color: transparent;
-    border: none;
-    color: aliceblue;
-    cursor: pointer;
-}
-
-button:hover {
-    opacity: 0.8;
-}
-
-.container-pesquisar {
+.container-return {
     position: relative;
     width: 100%;
 }
 
-.container-pesquisar i {
+.return {
+    background-color: transparent;
+    border: #DFD3FF solid 1px;
+    color: #DFD3FF;
+    cursor: pointer;
+    border-radius: 50%;
     position: absolute;
-    left: 10px;
-    top: 20%;
-    color: aliceblue;
+    height: 35px;
+    width: 35px;
+}
+
+button:hover {
+    opacity: 0.8;
 }
 
 section {
@@ -74,40 +71,42 @@ section {
     margin-left: 80px;
 }
 
-input {
-    width: 90%;
-    background-color: #3610A3;
-    border-radius: 30px;
-    border: 1px solid #ffffff;
-    outline: none;
-    height: 30px;
-    padding-left: 40px;
-    color: #ffffff;
+.banner {
+    display: inline-block;
 }
 
-.Pesquisar::placeholder {
-    color: aliceblue;
+.information {
+    display: inline-block;
+    width: 600px;
+    margin-left: 32px;
+    margin-top: 50px;
 }
 
-img {
-    height: 150px;
-    border-radius: 4px;
+.img-secondPage {
+    height: 280px;
+    border-radius: 24px;
 }
 
-.container-filmes {
-    display: flex;
-    gap: 15px;
-    margin: 20px 0 0px 20px;
-    cursor: pointer;
-    flex-wrap: wrap;
+h1 {
+    font-size: 40px;
+    color: #FFFFFF;
+    margin-bottom: 15px;
 }
 
 h3 {
-    color: aliceblue;
-    font-weight: bold;
+    color: #DFD3FF;
+    font-size: 20px;
+    margin-bottom: 15px;
 }
 
 h4 {
     color: #ffffff;
     font-weight: lighter;
+    margin-bottom: 16px;
+    font-size: 16px;
+}
+
+.autor {
+    margin-top: 10px;
+    color: #DFD3FF;
 }

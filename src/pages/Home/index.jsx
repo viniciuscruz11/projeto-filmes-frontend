@@ -1,10 +1,11 @@
 import './style.css'
-import GameofThronesImage from '../../assets/game-of-thrones.jpeg'
-import HowIMet from '../../assets/how i met your mother.jpeg'
-import PeakyBlinders from '../../assets/peaky blinders.jpg'
-import TheOffice from '../../assets/the office.jpg'
+import GameofThronesImage from '../../assets/game-of-thrones.png'
+import HowIMet from '../../assets/how i met your mother.png'
+import PeakyBlinders from '../../assets/peaky blinders.png'
+import TheOffice from '../../assets/the office.png'
 import api from '../../services/api'
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 
 function Home() {
@@ -20,16 +21,12 @@ function Home() {
       setLoading(true);
       setError('');
       try {
-        const response = await fetch('http://www.omdbapi.com/?apikey=1c7e315c');
-        if (!response.ok) {
-          throw new Error('Erro ao buscar filmes');
-        }
-        const data = await response.json();
-        if (data.Response === "True") {
-          setMovies(data.Search); // Acesse o array de filmes
-          setFilteredMovies(data.Search); // Inicialmente, todos os filmes são exibidos
+        const response = await api.get('/?apikey=1c7e315c&t');
+        if (response.status === 200) { // Verifica se a resposta é bem-sucedida
+          setMovies(response.data); // Acesse o array de filmes
+          setFilteredMovies(response.data); // Inicialmente, todos os filmes são exibidos
         } else {
-          throw new Error(data.Error);
+          throw new Error('Erro ao buscar filmes');
         }
       } catch (err) {
         setError(err.message);
@@ -87,14 +84,17 @@ function Home() {
           <i class="ri-search-line"></i>
           <input name='Pesquisar' type='text' placeholder='Pesquisar' value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}></input>
+          <button className='botao-buscar'>Buscar</button>
         </header>
 
         <div className='container-filmes'>
 
           <div className='filmes'>
-            <img src={HowIMet} />
-            <h3>How i met your mother</h3>
-            <h4>2014</h4>
+            <Link to="/second">
+              <img src={HowIMet} />
+              <h3>How i met your mother</h3>
+              <h4>2014</h4>
+            </Link>
           </div>
 
           <div className='filmes'>
